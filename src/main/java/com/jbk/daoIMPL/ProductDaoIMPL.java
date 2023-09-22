@@ -9,16 +9,37 @@ import com.jbk.model.Product;
 public class ProductDaoIMPL implements ProductDao {
 
 	List<Product> list=new ArrayList();
+
 	@Override
 	public String saveProduct(Product product) {
 		list.add(product);
-		return "product is also saved";
+		return "product is saved";
 	}
 
 	@Override
 	public Product getproductById(String productId) {
+		for(Product product :list) {
+			
+		if(productId==product.getProductId())
+			return product;
 		
+		}
 		return null;
 	}
+		
+		@Override
+		public List<Product> getProduct(){
+			List<Product>list2=new ArrayList<Product>();
+			int i=0;
+			while(list.size()!=0) {
+				list2.add(list.get(i));
+				i++;
+				
+			}
+			return list2;
+		}
+	}
 
-}
+	
+
+
