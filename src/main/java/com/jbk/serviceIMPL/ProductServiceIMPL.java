@@ -28,9 +28,9 @@ ProductDao dao =new ProductDaoIMPL();
 	}
 	
 	@Override
-	public List<Product>getProduct(){
+	public List<Product>getAllProduct(){
 		List<Product>list=new ArrayList<Product>();
-		list=dao.getProduct();
+		list=dao.getAllProduct();
 		return list;
 	}
 
