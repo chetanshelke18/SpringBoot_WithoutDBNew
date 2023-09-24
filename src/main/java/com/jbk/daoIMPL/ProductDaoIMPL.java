@@ -10,17 +10,23 @@ public class ProductDaoIMPL implements ProductDao {
 
 	List<Product> list=new ArrayList();
 
+	public ProductDaoIMPL() {
+		list.add(new Product("1", "xyz", 1, 1, 10, 10));
+		list.add(new Product("1", "xyz", 1, 1, 10, 12));
+		list.add(new Product("1", "xyz", 1, 1, 10, 15));
+
+	}
 	@Override
 	public String saveProduct(Product product) {
 		list.add(product);
-		return "product is saved";
+		return "product is also saved";
 	}
 
 	@Override
 	public Product getproductById(String productId) {
 		for(Product product :list) {
 			
-		if(productId==product.getProductId())
+		if(productId.equals(product.getProductId()))
 			return product;
 		
 		}
@@ -28,18 +34,14 @@ public class ProductDaoIMPL implements ProductDao {
 	}
 		
 		@Override
-		public List<Product> getProduct(){
-			List<Product>list2=new ArrayList<Product>();
-			int i=0;
-			while(list.size()!=0) {
-				list2.add(list.get(i));
-				i++;
-				
-			}
-			return list2;
+		public List<Product> getAllProduct(){
+		if(!list.isEmpty()) {
+			return list;
+		}else {
+			return null;
 		}
 	}
 
-	
+}
 
 
